@@ -57,5 +57,5 @@ jobs:
       - name: Build, test, and upload image
         run: |
           cd ${{ github.workspace }}
-          docker build -t github-submission .
-          tira-run --command '/run-notebook.py --notebook /app/${{inputs.notebook}} --input $inputDataset --output $outputDir' --input-dataset ir-lab-sose-2024/ir-acl-anthology-20240504-training --image github-submission --push true --fail-if-output-is-empty
+          docker build -t github-submission:latest .
+          tira-run --command '/run-notebook.py --notebook /app/${{inputs.notebook}} --input $inputDataset --output $outputDir' --input-dataset ir-lab-sose-2024/ir-acl-anthology-20240504-training --image github-submission:latest --push true --fail-if-output-is-empty
